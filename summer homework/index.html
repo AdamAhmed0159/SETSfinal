@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.E.T.S Mini Schools</title>
+    <link rel="stylesheet" href="sh.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="sets.png" alt="S.E.T.S Mini Schools Logo">
+        <nav>
+            <a href="#" data-content="home">Home</a>
+            <a href="#" data-content="about">About us</a>
+            <div class="underline"></div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h1>Sets you on the right path for your future</h1>
+        <div class="image-row">
+            <img src="WhatsApp Image 2025-09-21 at 3.59.20 PM.jpeg" alt="First image">
+            <img src="WhatsApp Image 2025-09-21 at 5.06.31 PM.jpeg" alt="Second image">
+            <img src="WhatsApp Image 2025-09-27 at 7.37.03 PM.jpeg" alt="Third image">
+        </div>
+    </main>
+
+    <script>
+        const links = document.querySelectorAll('nav a');
+        const underline = document.querySelector('.underline');
+        const mainContent = document.getElementById('main-content');
+
+        const contents = {
+            home: `
+                <h1>Sets you on the right path for your future</h1>
+                <div class="image-row">
+                    <img src="" alt="First image">
+                    <img src="pixilart-drawing (3).png" alt="Second image">
+                    <img src="pixilart-drawing (4).png" alt="Third image">
+                </div>
+            `,
+            about: `
+                <h1>About Us</h1>
+                <p>
+S.E.T.S stands for skill exchange, tutoring, and stationary. It is a student led initiative created by students, for students, to make learning more accessible. The project works through mini stands set up in the city and in the future, inside schools. At these stands, students will be able to exchange skills in areas such as art, music, coding, languages,sports, etc giving everyone a chance to learn from each other in a fun and friendly way. We also provide tutoring opportunities, where students who are confident in certain subjects can help others who may need extra support, making learning less intimidating and more personal. Our stands will also sell recycled stationery, encouraging sustainability and student entrepreneurship.
+                </p>
+            `
+        };
+
+        function moveUnderline(link) {
+            underline.style.width = link.offsetWidth + "px";
+            underline.style.left = link.offsetLeft + "px";
+        }
+
+        links.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                moveUnderline(link);
+                const contentKey = link.getAttribute('data-content');
+                mainContent.innerHTML = contents[contentKey];
+            });
+        });
+
+        // Initialize underline position
+        moveUnderline(links[0]);
+    </script>
+
+    <footer>
+        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+            <img src="fb.jpeg" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+            <img src="ig.jpeg" alt="Instagram">
+        </a>
+        <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
+            <img src="tktk.jpeg" alt="TikTok">
+        </a>
+    </footer>
+
+</body>
+
+</html>
